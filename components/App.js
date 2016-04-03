@@ -1,15 +1,18 @@
 import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import TodoList from '../Pages/TodoList';
+import Counter from '../Pages/Counter';
+import Home from '../Pages/Home';
+import NoMatch from '../Pages/NoMatch';
+import { Router, Route, Link, browserHistory } from 'react-router'
 
 const App = () => (
   <div>
-    <Header />
-    <AddTodo />
-    <VisibleTodoList />
-    <Footer />
+    <Router history={browserHistory}>
+      <Route path="/" component={Home} />
+      <Route path="todos" component={TodoList} />
+      <Route path="counter" component={Counter} />
+      <Route path="*" component={NoMatch} />
+    </Router>
   </div>
 );
 
